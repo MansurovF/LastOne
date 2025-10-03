@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Frontend Engineer</title>
+  <meta name="description" content="Minimal, accessible portfolio inspired by brittanychiang.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-M9VcXkH2QeM7EYZukVh6wH5whbdg7EY6NlmWbiJvTwA9O0Q7T8t5o6aS8Nw1zF3FzQ0XElYlY0P2A+VtRz0XQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --text: #e6eef8;
+      --accent: #7c3aed; /* purple-ish accent */
+      --glass: rgba(255,255,255,0.04);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #071029 100%);
+      color:var(--text);
+      line-height:1.45;
+      font-family: serif;
+      padding:40px 24px;
+    }
+    .project:hover {
+  border: 2px solid #7c3aed;
+  box-shadow: 0 0 10px #7c3aed;
+}
+.links a:hover{
+  border: 2px solid #7c3aed;
+  box-shadow: 0 0 10px #7c3aed;
+}
+    .container{max-width:900px;margin:0 auto}
+
+    /* Header / Nav */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:48px}
+    .brand{font-weight:700;font-size:18px;letter-spacing:0.6px}
+    nav{display:flex;gap:12px;align-items:center}
+    a.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+    a.btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+    .hero h1{margin:0;font-size:38px;line-height:1.02}
+    .hero p.lead{color:var(--muted);margin-top:12px;max-width:60ch}
+    .profile-bubble{width:160px;height:160px;border-radius:16px;background:linear-gradient(135deg,var(--card),var(--glass));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04);}
+    .profile-bubble img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+    /* Sections */
+    section{margin-top:48px}
+    h2.section-title{font-size:16px;margin:0 0 18px 0;letter-spacing:0.6px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* Projects grid */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .project{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .project h3{margin:0 0 8px 0;font-size:15px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 260px;gap:16px}
+    .contact-grid form input, .contact-grid form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+    .contact-grid form button{margin-top:8px;padding:10px 14px;border-radius:8px;background:var(--accent);border:none;color:white;font-weight:700}
+
+    footer{margin-top:48px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Responsive tweaks */
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr;}
+      .contact-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .links a{margin-right:8px;color:var(--muted);text-decoration:none;font-weight:600}
+    .pill{display:inline-block;padding:6px 8px;border-radius:999px;font-size:13px;border:1px solid rgba(255,255,255,0.04)}
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="brand"></div>
+      <nav>
+        <a class="btn" href="#about">Haqqımda</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#contact">Əlaqə</a>
+        <a style="background-color: cadetblue;"  class="btn" href="#" id="themeToggle"><i class="fa-solid fa-toggle-on"></i></a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Salam — Mən <span style="color:var(--accent)">Farid Mansurov</span>
+        <div style="font-weight:600;color:var(--muted);font-size:16px;margin-top:6px">Software Engineer </div>
+        </h1>
+        <p style="visibility: hidden;" class="lead">Veb üçün əlçatan, piksel mükəmməliyi rəqəmsal işlər qururam. Dizayn sistemlərini ləzzətli, istifadəsi asan interfeyslərə çevirməyi sevirəm. Hal-hazırda sərbəst və ya tam zamanlı iş imkanları üçün mövcuddur.</p>
+
+        <p style="margin-top:18px">
+          <a class="btn" href="#projects">İşlerim</a>
+          <a class="btn" href="#contact" style="margin-left:8px">Əlaqə bölməsi</a>
+        </p>
+
+        <div style="margin-top:22px" class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="pill">Software Developer</div>
+              <div style="margin-top:8px; font-weight:600; visibility: hidden;">Klaviyo — Remote</div>
+              <div class="muted" style="margin-top:6px">JavaScript • TypeScript • React • HTML • CSS/SCSS</div>
+              <div class="muted" style="margin-top:6px">C# • Java • .Net • MsSql </div>
+            </div>
+            <div style="text-align:right" class="muted">
+              <div>Based in — Baku</div>
+              <div style="margin-top:6px">Open to work</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center">
+        <div class="profile-bubble" aria-hidden="true">
+          <!-- replace with your photo -->
+          <img src="/photos/3.4.2.jpg" alt="Profile photo" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About</h2>
+      <div class="card">
+        <p>Mən proqram təminatı sahəsində həvəsli bir inkişafçıyam və əsas məqsədim mürəkkəb problemləri həll edərək istifadəyə yararlı, dayanıqlı və miqyaslana bilən həllər yaratmaqdır. Yazdığım kodun səliqəli, effektiv və asan oxunaqlı olmasına xüsusi diqqət yetirirəm. Təcrübəm həm frontend, həm də backend texnologiyalarını əhatə edir və daim yeni biliklər öyrənərək inkişaf etməyə çalışıram. İstifadəçi təcrübəsini yaxşılaşdırmaq və məhsulların performansını artırmaq üçün müasir texnologiyalardan istifadə etməyi sevirəm. Komanda işi mənim üçün vacibdir, çünki ən yaxşı layihələr əməkdaşlıq nəticəsində ortaya çıxır. Asudə vaxtımda şəxsi layihələr üzərində işləyir, yeni texnologiyalar öyrənir və bacarıqlarımı təkmilləşdirirəm.</p>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">Tehsilim</h2>
+      <div class="card">
+        <p style="font-family: serif;">* 2020 - 2024 <br> Robotics and Mechatronics Engineering <span style="color: #7c3aed;">ASOIU</span> <br>
+           * 2022 - 2023 <br> Software Development <span style="color: #7c3aed;">Code Academy</span> <br>
+           * 2024 - 2026 <br> Robots and Robotics Systems <span style="color: #7c3aed;">ASOIU</span>
+
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 style="text-decoration: none;" class="section-title">Projects</h2>
+      <div class="projects">
+        <article class="project" tabindex="0">
+          <a style="text-decoration: none; color: white;" href="https://github.com/MansurovF/MonstaWatchProject.git"><h3>Project</h3></a>
+          <p>Saat satışı üçün hazırlanmışdır.
+          </p>
+          
+        </article>
+        <article class="project" tabindex="0">
+          <a  style="text-decoration: none; color: white;" href="https://github.com/MansurovF/WineFront-End.git"><h3>Project</h3></a>
+          <p>Şərab və içkilər üçün hazırlanmışdır</p>
+        </article>
+        <article class="project" tabindex="0">
+          <a style="text-decoration: none; color: white;" href="https://kingdtfprints.com/"><h3>Project </h3></a>
+          <p>Online satış üçün hazırlanmışdır ve hal-hazırda active olaraq istifade edilir</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card contact-grid">
+        <div>
+          <p class="muted">Birlikdə işləmək maraqlıdır? Qısa mesaj göndərin — Mən adətən bir neçə gün ərzində cavab verirəm.</p>
+          <div style="margin-top:12px" class="links">
+            <a href="https://github.com/MansurovF">GitHub</a>
+            <a href="https://www.linkedin.com/in/farid-mansurov-69953821b/">LinkedIn</a>
+            <a href="https://www.instagram.com/farid.mansurovv/">Instagram</a>
+          </div>
+        </div>
+        <form onsubmit="handleContact(event)">
+          <input name="name" placeholder="Your name" required />
+          <input name="email" placeholder="Your email" type="email" required />
+          <textarea name="message" rows="4" placeholder="Short message" required></textarea>
+          <button style="cursor: pointer;" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      Built with  — &copy; <span id="year"></span> • <span class="muted">Made from FM</span>
+    </footer>
+  </div>
+
+  <script>
+    // small interactivity: theme toggle (light/dark), contact handler
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    themeToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(html.style.getPropertyValue('--bg') === ''){
+        // quick light theme
+        html.style.setProperty('--bg', '#f8fafc');
+        html.style.setProperty('--card', '#ffffff');
+        html.style.setProperty('--text', '#081029');
+        html.style.setProperty('--muted', '#566173');
+        html.style.setProperty('--glass', 'rgba(0,0,0,0.03)');
+      } else {
+        html.style.setProperty('--bg', '');
+        html.style.setProperty('--card', '');
+        html.style.setProperty('--text', '');
+        html.style.setProperty('--muted', '');
+        html.style.setProperty('--glass', '');
+      }
+    });
+
+    function handleContact(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      // This demo doesn't submit — show a friendly message
+      alert('Thanks ' + data.get('name') + " — message received (demo). Replace with your own email handler or Netlify function.");
+      form.reset();
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
